@@ -18,6 +18,8 @@
     "@tailwindcss/vite": "^4.0.14",
     "@tanstack/react-router": "^1.114.17",
     "antd": "^5.24.3",
+    "jotai": "^2.12.2",
+    "lodash": "^4.17.21",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "tailwindcss": "^4.0.14"
@@ -27,6 +29,7 @@
     "@tanstack/react-router-devtools": "^1.114.21",
     "@tanstack/router-plugin": "^1.114.17",
     "@tanstack/router-vite-plugin": "^1.114.17",
+    "@types/lodash": "^4.17.16",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.0.4",
     "@vitejs/plugin-react-swc": "^3.8.0",

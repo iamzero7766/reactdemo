@@ -32,6 +32,12 @@ importers:
       antd:
         specifier: ^5.24.3
         version: 5.24.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      jotai:
+        specifier: ^2.12.2
+        version: 2.12.2(@types/react@18.3.18)(react@18.3.1)
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       react:
         specifier: ^18.0.0
         version: 18.3.1
@@ -54,6 +60,9 @@ importers:
       '@tanstack/router-vite-plugin':
         specifier: ^1.114.17
         version: 1.114.17(@tanstack/react-router@1.114.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.2)(tsx@4.19.3))
+      '@types/lodash':
+        specifier: ^4.17.16
+        version: 4.17.16
       '@types/react':
         specifier: ^18.3.18
         version: 18.3.18
@@ -905,6 +914,9 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
+  '@types/lodash@4.17.16':
+    resolution: {integrity: sha512-HX7Em5NYQAXKW+1T+FiuG27NGwzJfCX3s1GjOa7ujxZa52kjJLOr4FUxT+giF6Tgxv1e+/czV/iTtBw27WTU9g==}
+
   '@types/node@22.13.10':
     resolution: {integrity: sha512-I6LPUvlRH+O6VRUqYOcMudhaIdUVWfsjnZavnsraHvpBwaEyMN29ry+0UVJhImYL16xsscu0aske3yA+uPOWfw==}
 
@@ -1291,6 +1303,18 @@ packages:
     resolution: {integrity: sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==}
     hasBin: true
 
+  jotai@2.12.2:
+    resolution: {integrity: sha512-oN8715y7MkjXlSrpyjlR887TOuc/NLZMs9gvgtfWH/JP47ChwO0lR2ijSwBvPMYyXRAPT+liIAhuBavluKGgtA==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=17.0.0'
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react:
+        optional: true
+
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -1401,6 +1425,9 @@ packages:
 
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
+
+  lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
@@ -2687,6 +2714,8 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
+  '@types/lodash@4.17.16': {}
+
   '@types/node@22.13.10':
     dependencies:
       undici-types: 6.20.0
@@ -3177,6 +3206,11 @@ snapshots:
 
   jiti@2.4.2: {}
 
+  jotai@2.12.2(@types/react@18.3.18)(react@18.3.1):
+    optionalDependencies:
+      '@types/react': 18.3.18
+      react: 18.3.1
+
   js-tokens@4.0.0: {}
 
   js-yaml@4.1.0:
@@ -3256,6 +3290,8 @@ snapshots:
       p-locate: 5.0.0
 
   lodash.merge@4.6.2: {}
+
+  lodash@4.17.21: {}
 
   loose-envify@1.4.0:
     dependencies:

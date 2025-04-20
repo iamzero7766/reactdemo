@@ -14,6 +14,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as LayoutImport } from './routes/_layout'
 import { Route as LayoutIndexRouteImport } from './routes/_layout/index/route'
 import { Route as LayoutHomeIndexImport } from './routes/_layout/home/index'
+import { Route as LayoutDragHomeIndexImport } from './routes/_layout/dragHome/index'
 import { Route as LayoutDashboardIndexImport } from './routes/_layout/dashboard/index'
 
 // Create/Update Routes
@@ -32,6 +33,12 @@ const LayoutIndexRouteRoute = LayoutIndexRouteImport.update({
 const LayoutHomeIndexRoute = LayoutHomeIndexImport.update({
   id: '/home/',
   path: '/home/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutDragHomeIndexRoute = LayoutDragHomeIndexImport.update({
+  id: '/dragHome/',
+  path: '/dragHome/',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -66,6 +73,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutDashboardIndexImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/dragHome/': {
+      id: '/_layout/dragHome/'
+      path: '/dragHome'
+      fullPath: '/dragHome'
+      preLoaderRoute: typeof LayoutDragHomeIndexImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/home/': {
       id: '/_layout/home/'
       path: '/home'
@@ -81,12 +95,14 @@ declare module '@tanstack/react-router' {
 interface LayoutRouteChildren {
   LayoutIndexRouteRoute: typeof LayoutIndexRouteRoute
   LayoutDashboardIndexRoute: typeof LayoutDashboardIndexRoute
+  LayoutDragHomeIndexRoute: typeof LayoutDragHomeIndexRoute
   LayoutHomeIndexRoute: typeof LayoutHomeIndexRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutIndexRouteRoute: LayoutIndexRouteRoute,
   LayoutDashboardIndexRoute: LayoutDashboardIndexRoute,
+  LayoutDragHomeIndexRoute: LayoutDragHomeIndexRoute,
   LayoutHomeIndexRoute: LayoutHomeIndexRoute,
 }
 
@@ -97,12 +113,14 @@ export interface FileRoutesByFullPath {
   '': typeof LayoutRouteWithChildren
   '/': typeof LayoutIndexRouteRoute
   '/dashboard': typeof LayoutDashboardIndexRoute
+  '/dragHome': typeof LayoutDragHomeIndexRoute
   '/home': typeof LayoutHomeIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof LayoutIndexRouteRoute
   '/dashboard': typeof LayoutDashboardIndexRoute
+  '/dragHome': typeof LayoutDragHomeIndexRoute
   '/home': typeof LayoutHomeIndexRoute
 }
 
@@ -111,19 +129,21 @@ export interface FileRoutesById {
   '/_layout': typeof LayoutRouteWithChildren
   '/_layout/': typeof LayoutIndexRouteRoute
   '/_layout/dashboard/': typeof LayoutDashboardIndexRoute
+  '/_layout/dragHome/': typeof LayoutDragHomeIndexRoute
   '/_layout/home/': typeof LayoutHomeIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/' | '/dashboard' | '/home'
+  fullPaths: '' | '/' | '/dashboard' | '/dragHome' | '/home'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/home'
+  to: '/' | '/dashboard' | '/dragHome' | '/home'
   id:
     | '__root__'
     | '/_layout'
     | '/_layout/'
     | '/_layout/dashboard/'
+    | '/_layout/dragHome/'
     | '/_layout/home/'
   fileRoutesById: FileRoutesById
 }
@@ -154,6 +174,7 @@ export const routeTree = rootRoute
       "children": [
         "/_layout/",
         "/_layout/dashboard/",
+        "/_layout/dragHome/",
         "/_layout/home/"
       ]
     },
@@ -163,6 +184,10 @@ export const routeTree = rootRoute
     },
     "/_layout/dashboard/": {
       "filePath": "_layout/dashboard/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/dragHome/": {
+      "filePath": "_layout/dragHome/index.tsx",
       "parent": "/_layout"
     },
     "/_layout/home/": {
